@@ -1,11 +1,17 @@
 package Gamelab;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Room {
 	//object variables - usually private
-	private String description; // room decription to display to player
-	private Item item_name;
+	private String description;//private Item item_name;
+	private String name;
+	HashMap<String , Item>  items;  // item_objects and Item_keys.
+	//private String Item_name;
+	//Item in the hashmap consist of "item_name" and "description" 
+	private boolean lock;
+	
 	
 	// Object references - set to null by default
 	private Room east; // Reference to room to the east
@@ -18,8 +24,11 @@ public class Room {
 	//Construct method - initialize room description.
 	// Does not initialize Room variables because they default
 	// to null and that is what we want
-	public Room(String desc) {
+	public Room(String n, String desc) {
 		description = desc;
+		name = n;
+		items = new HashMap<>();
+	
 		
 	}
 	//object methods
@@ -60,7 +69,7 @@ public class Room {
 		else if (dir == 'd')
 			return down;
 		else 
-			return null;
+			return  null;
 		
 	}
 	//Formats the object's data as a string
@@ -71,16 +80,49 @@ public class Room {
 		
 	}
 	
-	public Item getItem_in_Room() {
-		      return  item_name;
+	public Item getItem_in_Room(String name) {
+		for(String item_name : items.keySet()) { 
+				Item a = items.get(item_name);
+				if(a.getname().equals(name))
+					return a;
+		}
+		return null;
+
 }
-	public void setItem_in_Room(Item name ) {
-	      item_name= name;
+	public void setItem_in_Room(Item name, String item_key) { //b4 Item name
+	      //b4 item_name= name;
+			 items.put(item_key, name );
 }
 	
+	public void removeItem(Item name) {
+		items.remove(name);
+	}
+	public void setlock(Boolean lock) { // Game Lab Locking Rooms update
+		this.lock = lock;
+	}
+	
+	public Boolean getlock() { //Game Lab locking rooms update
+		return lock;
+	}
+	
+	public void setName(String name) { // Game Lab locking rooms update
+		this.name = name;
+	}
+	
+	public String getName() {// Game Lab locking rooms update 
+		return name;
+	}
 	
 	
 	
-		
+	// the game always keep track of your current room
+	// you have to get to the closet before you can get the key
+	// 
+	// To restrict acces to the closet 
+	//WE add a boolean variable to the room 
+	// add a get and set method to set the variable in room
+	// 
+	
+	
 	}
 

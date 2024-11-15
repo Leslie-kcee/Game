@@ -16,6 +16,10 @@ public class Item {
 			return item_name;
 		}
 		
+		public String getdescription() { // was not asked to include this
+			return description;
+		}
+		
 		public String setname(String item) {
 			return item_name;
 			}
@@ -23,6 +27,16 @@ public class Item {
 		
 		public String toString() {
 			return item_name;
+		}
+		
+		
+		public void open() {
+			game.print("You can't open that!");
+		}
+		
+	
+		public void use() {
+			game.print("You can't use that!");
 		}
 		
 		
