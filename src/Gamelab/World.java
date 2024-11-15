@@ -15,15 +15,15 @@ public class World {
 			Bike bike = new Bike("bike", "A bike fueled by a coin");
 			Chestboard chestboard = new Chestboard("chestboard", "An ordinary chest board with a hidde treasure");
 			Key key = new Key("key","impressive you now have the key");
-			Item paper = new Item("paper", "This paper might interest you!"); // paper has key information for game advancement
-			Item cooker = new Item("cooker", "Nothing special about this cooking stove"); // drawer will have a paper
+			Item paper = new Item("paper", "This paper might interest you!"); 
+			Item cooker = new Item("cooker", "Nothing special about this cooking stove"); 
 			Room livingRoom = new Room("living Room", "You are in the living room.");
-			Room Kitchen = new Room("Kitchen", "You are in the kitchen."); // has a special drawer with a paper in it
+			Room Kitchen = new Room("Kitchen", "You are in the kitchen.");
 			Room hallway1 = new Room("hallway", "You are in the hallway");
 			Room attic = new Room("attic", "You are now in the Laundry room");
 			Room bedRoom1 = new Room("bedroom","You are in the bedroom");
 			Room bathRoom1 = new Room("bathroom","You are in the first floor's bathroom");
-			Room Garden = new Room("Garden", " You are now in the Garden");  //has a bike that takes you straight to bathroom 2 where the key is at
+			Room Garden = new Room("Garden", " You are now in the Garden");  //has a bike that takes you straight to bathroom 3 where the key is at
 			Room MovieRoom = new Room("MovieRoom","You are now in the movie room");
 			Room StorageRoom = new Room("Storage Room", "You are now in the storage room");
 			Room Stairs = new Room("Stairs", " You are now in the stairs");
@@ -70,7 +70,6 @@ public class World {
 			bedRoom1.setItem_in_Room(bag, "bag");
 			bedRoom2.setItem_in_Room(comb, "comb");
 			bedRoom2.setItem_in_Room(bowl, "bowl");
-			//StorageRoom.setItem_in_Room(combination, "combination");
 			Garden.setItem_in_Room(combination, "combination");
 
 			return livingRoom;

@@ -14,7 +14,7 @@ public class Key extends Item{
 		}
 		
 		else {
-			game.print("The room is already open");
+			game.print("The room is already open.");
 		}
 	}
 	

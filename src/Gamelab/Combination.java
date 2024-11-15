@@ -8,7 +8,7 @@ public class Combination extends Item {
 
 	@Override
 	public void use() {
-		game.print("If you find a safe, try opening it!");
+		game.print("If you find a safe, try opening it! ");
 	}
 	
 }

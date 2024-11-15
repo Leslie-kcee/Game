@@ -18,7 +18,7 @@ public class Bike extends Item {
 		}
 		if(foundcoin) {
 				game.print("You will get staright to the room that contains the Safe");
-				//game.currentRoom.addExit('n', World.getbathroom3());//takes player stariht to bathRoom3 where the safe is found
+				//takes player straight to bathRoom3 where the safe is found
 				game.currentRoom= World.getbathroom3();
 				
 			}

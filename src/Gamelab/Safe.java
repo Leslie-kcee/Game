@@ -19,7 +19,7 @@ public class Safe  extends Item{
 		if(found) {
 			       	game.print("Using the combination, you open the safe and find a diamond inside! Naturally, you pocket the diamond.");
 			       	
-			       	Item diamond = new Item("Diamond", "Bright and light");
+			       	Item diamond = new Item("Diamond", "Bright and light!");
 			       	game.inventory.add(diamond); // no class needed cause user won't need to open it
 			}
 		

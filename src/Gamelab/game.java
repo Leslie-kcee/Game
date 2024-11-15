@@ -19,7 +19,7 @@ public class game {
 
 	    do{
 	        System.out.println(currentRoom);
-	        System.out.print("Where do you want to go? ");
+	        System.out.println("Where do you want to go? ");
 	        command = input.nextLine();
 	        String[] word = command.split(" ");
 	        String first = word[0];

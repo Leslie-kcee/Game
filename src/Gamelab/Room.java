@@ -89,8 +89,7 @@ public class Room {
 		return null;
 
 }
-	public void setItem_in_Room(Item name, String item_key) { //b4 Item name
-	      //b4 item_name= name;
+	public void setItem_in_Room(Item name, String item_key) {
 			 items.put(item_key, name );
 }
 	
@@ -114,15 +113,7 @@ public class Room {
 	}
 	
 	
-	
-	// the game always keep track of your current room
-	// you have to get to the closet before you can get the key
-	// 
-	// To restrict acces to the closet 
-	//WE add a boolean variable to the room 
-	// add a get and set method to set the variable in room
-	// 
-	
+
 	
 	}
 

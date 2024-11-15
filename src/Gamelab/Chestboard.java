@@ -8,8 +8,8 @@ public class Chestboard extends Item{
 	@Override
 	public void open() {
 		Item coin ;
-		game.inventory.add(new Item("coin","Congrats you just got the magic coin"));
-		game.print("Wow look what you found! An old coin!");
-		game.print("You will use this coin for your bike. This will take you to the Room where the safe is found");
+		game.inventory.add(new Item("coin","Congrats you just got the magic coin. "));
+		game.print("Wow look what you found! An old coin! ");
+		game.print("You will use this coin for your bike. This will take you to the Room where the safe is found. ");
 	}
 }
