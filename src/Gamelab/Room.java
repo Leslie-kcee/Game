@@ -1,13 +1,16 @@
 package Gamelab;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class Room {
+import java.util.HashMap;
+import java.io.Serializable;
+
+public class Room implements Serializable {
 	//object variables - usually private
-	private String description;//private Item item_name;
+	//private String description;//private Item item_name;
 	private String name;
 	HashMap<String , Item>  items;  // item_objects and Item_keys.
+	HashMap<String, NPC> Npc;
 	//private String Item_name;
 	//Item in the hashmap consist of "item_name" and "description" 
 	private boolean lock;
@@ -24,13 +27,20 @@ public class Room {
 	//Construct method - initialize room description.
 	// Does not initialize Room variables because they default
 	// to null and that is what we want
-	public Room(String n, String desc) {
-		description = desc;
+	public Room(String n) {
 		name = n;
 		items = new HashMap<>();
+		Npc = new HashMap<>();
+		game.rooms.put(name, n);
 	
 		
 	}
+	
+	public String getdescription(){
+		return game.rooms.get(name);
+	}
+	
+	
 	//object methods
 	
 	//Updates one of the Room variables.
@@ -75,8 +85,9 @@ public class Room {
 	//Formats the object's data as a string
 	// Returns the string.
 	@Override
+	//update of todays lab
 	public String toString() {
-		return description;
+		return name;
 		
 	}
 	
@@ -112,8 +123,18 @@ public class Room {
 		return name;
 	}
 	
-	
+	public void setNPC_in_Room(String NPC_key, NPC name) {
+		Npc.put(NPC_key, name);
 
-	
 	}
-
+	
+	public NPC getNPC_in_Room(String name) {
+		for(String Npc_name : Npc.keySet()) { 
+				NPC b = Npc.get(Npc_name);
+				if(b.getName().equals(name))
+					return b;
+		}
+		return null;
+	
+	}		
+}
