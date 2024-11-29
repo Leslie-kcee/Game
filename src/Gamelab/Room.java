@@ -31,13 +31,14 @@ public class Room implements Serializable {
 		name = n;
 		items = new HashMap<>();
 		Npc = new HashMap<>();
-		game.rooms.put(name, n);
+		
+		game.rooms.put(name, this);
 	
 		
 	}
 	
 	public String getdescription(){
-		return game.rooms.get(name);
+		return game.roomsdesc.get(name);
 	}
 	
 	

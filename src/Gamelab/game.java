@@ -14,12 +14,14 @@ public class game {
 	
 	String Game;
 	public static Scanner input = new Scanner(System.in);  // Creates a new scanner object called input from the keyboard
-	static HashMap<String , String >  rooms = new HashMap<>();
+	static HashMap<String , Room >  rooms = new HashMap<>();
+	static HashMap<String , String >  roomsdesc = new HashMap<>();
 	static ArrayList<Item> inventory = new ArrayList<Item>();
 	static Room currentRoom ;
 	
 	public static void main(String[] args) {// The name on tab has to be the same name in class so the program can run.
 		currentRoom = World.buildWorld();
+		loadRoomdesc();
 		runGame();
 		
 
@@ -27,31 +29,24 @@ public class game {
 
 	public static void loadRoomdesc() {
 		try {
-			Scanner input = new Scanner(new File("Gameroom.txt"));
+			Scanner input = new Scanner(new File("Gameroom"));
 			String Roomname  = "";
 			String Roomdesc = "";
 			while(input.hasNextLine()){
 				Thread.sleep(1000);//sleep for 1 second
-				String line = input.nextLine();
+				String line = input.nextLine().trim();
 				
-				if(line.isEmpty()) {
-					continue;
+				if(line.charAt(0)=='Y') {
+					Roomdesc = line;
+					roomsdesc.put(Roomname, Roomdesc);
 				}
 				
-				if(line.charAt(0) !='#') {
-					if(Roomname.isEmpty()==false) {
-						rooms.put(Roomname, Roomdesc);  
-					}
-					Roomname = line;    //new room name
-					Roomdesc = "";      //new room description
-					}else {
-					Roomdesc = line.substring(1).trim();   //get the description afters skipping #
-				}
-			}
-				if(Roomname.isEmpty()==false) {
-					rooms.put(Roomname,  Roomdesc);
-				}
+				if(line.charAt(0)!='#' && line.charAt(0)!='Y') {
+					Roomname = line;
+					roomsdesc.put(Roomname, Roomdesc);
+				}	
 				
+			}		
 		input.close();
 	}catch(FileNotFoundException e) {
 		System.out.println("File not found!!!");	
@@ -60,9 +55,10 @@ public class game {
 	}
 
 	}
+	
 	public static void saveGame() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream("gameSave.ser");
+			FileOutputStream fileOut = new FileOutputStream("Gameroom");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(currentRoom);
             out.writeObject(inventory);
@@ -76,18 +72,20 @@ public class game {
 		}
 	public static void loadGame() {
         try {
-            FileInputStream fileIn = new FileInputStream("gameSave.ser");
+            FileInputStream fileIn = new FileInputStream("Gameroom");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             currentRoom = (Room) in.readObject();
             inventory = (ArrayList<Item>) in.readObject();
-            rooms = (HashMap<String, String>) in.readObject();
+            rooms = (HashMap<String, Room>) in.readObject();
             in.close();
             fileIn.close();
+            
             System.out.println("Game loaded successfully!");
         } catch (IOException | ClassNotFoundException i) {
             i.printStackTrace();
         }
 	}
+	
 	
 	public static void runGame(){
 		Scanner input = new Scanner(System.in); 

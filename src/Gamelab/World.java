@@ -19,36 +19,36 @@ public class World {
         Item paper = new Item("paper", "This paper might interest you!");
         Item cooker = new Item("cooker", "Nothing special about this cooking stove");
         NPC puppy = new Puppy("puppy", "A hideous puppy wags his tail.");
-        NPC magician = new NPC("Magician", "A wise old Magician.");
+        NPC magician = new NPC("magician", "A wise old Magician.");
 
         // Creating rooms
-        Room livingRoom = new Room("living Room");
+        Room livingRoom = new Room("livingRoom");
         Room Kitchen = new Room("Kitchen");
-        Room hallway1 = new Room("hallway");
-        Room bedRoom1 = new Room("bedroom");
-        Room bathRoom1 = new Room("bathroom");
+        Room Hallway1 = new Room("Hallway1");
+        Room bedRoom1 = new Room("bedRoom1");
+        Room bathRoom1 = new Room("bathRoom1");
         Room Garden = new Room("Garden");
         Room MovieRoom = new Room("MovieRoom");
-        Room StorageRoom = new Room("Storage Room");
+        Room StorageRoom = new Room("StorageRoom");
         Room Stairs = new Room("Stairs");
-        Room hallway2 = new Room("Hallway");
-        Room bedRoom2 = new Room("bedroom");
-        Room bathRoom2 = new Room("bathroom");
+        Room Hallway2 = new Room("Hallway2");
+        Room bedRoom2 = new Room("bedRoom2");
+        Room bathRoom2 = new Room("bathRoom2");
         
         // Adding exits
         livingRoom.addExit('n', StorageRoom);
         livingRoom.addExit('w', Garden);
         livingRoom.addExit('s', MovieRoom);
-        livingRoom.addExit('e', hallway1);
-        hallway1.addExit('w', livingRoom);
-        hallway1.addExit('n', Kitchen);
-        hallway1.addExit('s', bedRoom1);
-        hallway1.addExit('e', Stairs);
+        livingRoom.addExit('e', Hallway1);
+        Hallway1.addExit('w', livingRoom);
+        Hallway1.addExit('n', Kitchen);
+        Hallway1.addExit('s', bedRoom1);
+        Hallway1.addExit('e', Stairs);
         Stairs.addExit('d', bathRoom2);
-        Stairs.addExit('u', hallway2);
-        hallway2.addExit('n', bathRoom3);
-        hallway2.addExit('e', bedRoom2);
-        Kitchen.addExit('s', hallway1);
+        Stairs.addExit('u', Hallway2);
+        Hallway2.addExit('n', bathRoom3);
+        Hallway2.addExit('e', bedRoom2);
+        Kitchen.addExit('s', Hallway1);
         Kitchen.addExit('w', StorageRoom);
         StorageRoom.addExit('w', Garden);
         StorageRoom.addExit('e', Kitchen);
@@ -58,11 +58,11 @@ public class World {
         MovieRoom.addExit('n', livingRoom);
         MovieRoom.addExit('e', bathRoom1);
         bathRoom1.addExit('w', MovieRoom);
-        bedRoom1.addExit('n', hallway1);
+        bedRoom1.addExit('n', Hallway1);
         bathRoom2.addExit('n', Stairs);
-        bedRoom2.addExit('w', hallway2);
-        hallway2.addExit('d', Stairs);
-        bathRoom3.addExit('s', hallway2);
+        bedRoom2.addExit('w', Hallway2);
+        Hallway2.addExit('d', Stairs);
+        bathRoom3.addExit('s', Hallway2);
         bathRoom3.setlock(true);
         livingRoom.setlock(false);
 
@@ -81,20 +81,7 @@ public class World {
         MovieRoom.setNPC_in_Room("puppy", puppy);
         StorageRoom.setNPC_in_Room("Magician", magician);
 
-        // Storing room descriptions in game.rooms hashmap
-        game.rooms.put("living Room", "You are in the living room.");
-        game.rooms.put("Kitchen", "You are in the kitchen.");
-        game.rooms.put("hallway", "You are in the hallway.");
-        game.rooms.put("bedroom", "You are in the bedroom.");
-        game.rooms.put("bathroom", "You are in the first floor's bathroom.");
-        game.rooms.put("Garden", "You are now in the Garden.");
-        game.rooms.put("MovieRoom", "You are now in the movie room.");
-        game.rooms.put("Storage Room", "You are now in the storage room.");
-        game.rooms.put("Stairs", "You are now on the stairs.");
-        game.rooms.put("Hallway", "You are on the second floor's hallway.");
-        game.rooms.put("bedroom", "You are in the bedroom on the second floor.");
-        game.rooms.put("bathroom", "You are on the second floor's bathroom, close to the stairs.");
-
+        
         // Return the starting room
         return livingRoom;
     }
