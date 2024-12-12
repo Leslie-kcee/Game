@@ -6,7 +6,7 @@ public class Key extends Item{
 		super(name, description);
 	}
 	
-	@Override
+	@Override  // Player uses key to open safe and have access to the diamond
 	public void use() {
 		if(game.currentRoom.getlock()==false) {
 			game.currentRoom.setlock(true);

@@ -7,7 +7,7 @@ public class Magician extends NPC{
 	}
 	
 	@Override
-	public void talk() {
+	public void talk() { // Player talks to magician, who gives him a hint as to where the key is found.
 		say("Welcome friend, I have a surprise for you.");
 		String[] options = {
 				"Yay, I love surprises.",
@@ -20,7 +20,7 @@ public class Magician extends NPC{
 	public void response(int option) {
 		switch(option){
 		case 1:
-			say("Okay, so it's not a surprise. I just need you to find my puppy.");
+			say("So, there is a key in one of the bathrooms that could be of help to you. I can't tell where it is though");
 			break;
 		
 		case 2:

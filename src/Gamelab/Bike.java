@@ -7,7 +7,7 @@ public class Bike extends Item {
 	}
 	
 	@Override
-	public void use() {
+	public void use() {     //After taking the bike in the garden the player uses coin to get straight to the Room with the key
 		boolean foundcoin = false;
 		for(Item item : game.inventory) {
 			String a = item.getname();
@@ -16,7 +16,7 @@ public class Bike extends Item {
 				break;
 			}
 		}
-		if(foundcoin) {
+		if(foundcoin) { 
 				game.print("You will get staright to the room that contains the Safe");
 				//takes player straight to bathRoom3 where the safe is found
 				game.currentRoom= World.getbathroom3();

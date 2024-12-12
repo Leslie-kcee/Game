@@ -51,7 +51,7 @@ public class Puppy extends NPC{
 				
 			}
 		}
-			else if(dialogue ==2) {
+			else if(dialogue ==2) { // Player plays with puppy
 				switch(option) {
 				case 1:
 					say("Yay! Fetch");

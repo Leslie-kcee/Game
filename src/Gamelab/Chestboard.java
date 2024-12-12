@@ -6,10 +6,12 @@ public class Chestboard extends Item{
 		super(name, description);
 	}
 	@Override
-	public void open() {
+	public void open() {  // Player takes key from the chestboard to use bike
 		Item coin ;
 		game.inventory.add(new Item("coin","Congrats you just got the magic coin. "));
 		game.print("Wow look what you found! An old coin! ");
 		game.print("You will use this coin for your bike. This will take you to the Room where the safe is found. ");
 	}
 }
+
+//Player needs coin to use bike

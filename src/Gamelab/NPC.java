@@ -1,6 +1,8 @@
 package Gamelab;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 
 	
 	public class NPC {
@@ -26,13 +28,17 @@ import java.util.Scanner;
 		// This method intentionally left blank.
 		}
 		public void getResponse(String[] options) {
-		for(int i=0; i<options.length; i++) {
-		game.print("Option "+(i+1)+": "+options[i]);
+			String s = "";
+			for(int i=0; i<options.length; i++) {
+				//game.print("Option "+(i+1)+": "+options[i]);
+				s+="Option" + (i+1) + ":" + options[i]+ "\n";
 		}
-		game.print("Enter an option (1-"+options.length+"):");
-		int option = game.input.nextInt();
-		 game.input.nextLine(); // Flush input buffer
-		response(option);
+			s+= "Enter an option(1-" + options.length +"):";
+			int option = Integer.parseInt(JOptionPane.showInputDialog(s));
+			//game.print("Enter an option (1-"+options.length+"):");
+			//int option = game.input.nextInt();
+			//game.input.nextLine(); // Flush input buffer
+			response(option);
 		}
 	}
 		
